@@ -63,7 +63,9 @@ body{
     opacity: 0.8;
  }
 
-
+#botaoJogar{
+    display:none;
+}
 
 
 
@@ -122,5 +124,7 @@ body{
        width: 300px;
        height: 70px;
     }
-      
+      #botaoJogar{
+        display: block;
+    }
 }
