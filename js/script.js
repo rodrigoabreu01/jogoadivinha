@@ -1,12 +1,9 @@
 let numeroRandomico = Math.floor(Math.random() * 100) + 1;
 let palpite = [];
 
-
-
-
 formulario.onsubmit = () => {
     event.preventDefault();
-    if(palpite.length < 10){
+    if(palpite.length < 47){
         if(input.value < numeroRandomico){
             alert("O numero que ela está pensando é maior!");
 
@@ -22,9 +19,15 @@ formulario.onsubmit = () => {
             changeIMG.src = "img/image 2.png";
             botao.innerHTML = 'Novo Jogo';
         }
-        palpite.push(input.value);
-        resultPalpites.innerHTML = palpite.join(' - ');
+        // SEM ARRAY METODOS
+        palpite += ' - ' + input.value;
+        resultPalpites.innerHTML = palpite;
         formulario.reset();
+
+        // COM ARRAY METODOS
+        // palpite.push(input.value);
+        // resultPalpites.innerHTML = palpite.join(' - ');
+        // formulario.reset();
 
     }else {
         document.getElementById('input').style = 'display: none;';
