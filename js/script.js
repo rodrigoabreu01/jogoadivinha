@@ -1,18 +1,41 @@
 let numeroRandomico = Math.floor(Math.random() * 100) + 1;
-palpites = [];
+let palpite = [];
+
+
 
 
 formulario.onsubmit = () => {
     event.preventDefault();
-    if(input.value < numeroRandomico){
-        alert('Você não acertou! O numero é menor!');
-        
-    }else{
-        alert('Você não acertou! O numero é maior!');
+    if(palpite.length < 10){
+        if(input.value < numeroRandomico){
+            alert("O numero que ela está pensando é maior!");
 
+        }else{
+            alert("O numero que ela está pensando é menor!");
+        }
+
+        if(input.value == numeroRandomico){
+            alert('Parabéns você acertou!');
+            document.getElementById('input').style = 'display: none;';
+            document.querySelector('#legenda1').style = 'display: block;';
+            document.querySelector('#legenda1').innerHTML = 'Parabêns, o número é:' + numeroRandomico;
+            changeIMG.src = "img/image 2.png";
+            botao.innerHTML = 'Novo Jogo';
+        }
+        palpite.push(input.value);
+        resultPalpites.innerHTML = palpite.join(' - ');
+        formulario.reset();
+
+    }else {
+        document.getElementById('input').style = 'display: none;';
+        document.querySelector('#legenda1').style = 'display: block;';
+        document.querySelector('#legenda1').innerHTML = 'Você não acertou, o número era:' + numeroRandomico;
+        botao.style = 'display: block;';
+        changeIMG.src = "img/Group 4.png";
     }
-    palpites.push(input.value);
-    palpitesText.innerHTML = palpites.join(' - ');
-    formulario.reset();
 
+}
+
+botao.onclick = () => {
+    window.location.reload();
 }
