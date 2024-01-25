@@ -3,7 +3,7 @@ let palpite = [];
 
 formulario.onsubmit = () => {
     event.preventDefault();
-    if(palpite.length < 47){
+    if(palpite.length < 40){
         if(input.value < numeroRandomico){
             alert("O numero que ela está pensando é maior!");
 
